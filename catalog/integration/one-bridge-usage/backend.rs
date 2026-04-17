@@ -22,8 +22,8 @@ impl Node for OneBridgeUsageNode {
             ],
             outputs: vec![
                 PortDef::new("total_cost", "Number", false),
-                PortDef::new("by_day", "List", false),
-                PortDef::new("by_agent", "List", false),
+                PortDef::new("by_day", "List[JsonDict]", false),
+                PortDef::new("by_agent", "List[JsonDict]", false),
             ],
             features: NodeFeatures { ..Default::default() },
             fields: vec![

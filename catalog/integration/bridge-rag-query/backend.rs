@@ -23,8 +23,8 @@ impl Node for BridgeRagQueryNode {
                 PortDef::new("top_k", "Number", false),
             ],
             outputs: vec![
-                PortDef::new("chunks", "List", false),
-                PortDef::new("sources", "List", false),
+                PortDef::new("chunks", "List[JsonDict]", false),
+                PortDef::new("sources", "List[String]", false),
             ],
             features: NodeFeatures { ..Default::default() },
             fields: vec![
