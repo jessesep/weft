@@ -26,6 +26,9 @@ pub mod sandbox;
 // Post-compilation enrichment
 pub mod enrich;
 
+// Shared helpers for bridge-calling nodes
+pub mod one_bridge_http;
+
 // Node implementations
 pub mod nodes;
 
