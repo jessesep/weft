@@ -25,6 +25,7 @@ export const OneBridgeLlmNode: NodeTemplate = {
 		{ name: 'model', portType: 'String', required: false, description: 'Model that was used' },
 		{ name: 'input_tokens', portType: 'Number', required: false, description: 'Input token count' },
 		{ name: 'output_tokens', portType: 'Number', required: false, description: 'Output token count' },
+		{ name: 'cost_usd', portType: 'Number', required: false, description: 'Call cost in USD' },
 	],
 	features: {
 		canAddInputPorts: false,

@@ -1,0 +1,20 @@
+[2m2026-04-15T17:00:18.200462Z[0m [32m INFO[0m [2mweft_api[0m[2m:[0m Starting Weft API server
+[2m2026-04-15T17:00:18.201034Z[0m [32m INFO[0m [2mweft_api::state[0m[2m:[0m Instance ID: spark-b917-2237960-acff6b7b
+[2m2026-04-15T17:00:18.201039Z[0m [32m INFO[0m [2mweft_api::state[0m[2m:[0m Connecting to PostgreSQL database
+[2m2026-04-15T17:00:18.208415Z[0m [32m INFO[0m [2msqlx::postgres::notice[0m[2m:[0m column "project_definition" of relation "triggers" already exists, skipping
+[2m2026-04-15T17:00:18.224876Z[0m [32m INFO[0m [2msqlx::postgres::notice[0m[2m:[0m relation "infra_pending_action" already exists, skipping
+[2m2026-04-15T17:00:18.225639Z[0m [32m INFO[0m [2mweft_nodes::registry[0m[2m:[0m NodeTypeRegistry initialized with 97 node types
+[2m2026-04-15T17:00:18.307723Z[0m [32m INFO[0m [2mweft_api[0m[2m:[0m No pending triggers to restart
+[2m2026-04-15T17:00:18.307850Z[0m [32m INFO[0m [2mweft_api[0m[2m:[0m Trigger event listener started
+[2m2026-04-15T17:00:18.309280Z[0m [33m WARN[0m [2mweft_api[0m[2m:[0m Failed to backfill usage aggregation: error occurred while decoding column 0: unexpected null; try decoding as an `Option`
+[2m2026-04-15T17:00:18.309477Z[0m [32m INFO[0m [2mweft_api[0m[2m:[0m CORS mode: local (allowing localhost origins)
+[2m2026-04-15T17:00:18.309622Z[0m [32m INFO[0m [2mweft_api[0m[2m:[0m Listening on 0.0.0.0:13000
+[2m2026-04-15T17:38:15.450525Z[0m [32m INFO[0m [2mweft_api::routes[0m[2m:[0m list_triggers from database: 0 triggers (userId filter: None)
+[2m2026-04-15T17:39:03.278533Z[0m [32m INFO[0m [2mweft_api::routes[0m[2m:[0m list_triggers from database: 0 triggers (userId filter: None)
+[2m2026-04-15T17:39:10.369713Z[0m [32m INFO[0m [2mweft_api::routes[0m[2m:[0m list_triggers from database: 0 triggers (userId filter: None)
+[2m2026-04-15T17:41:11.671681Z[0m [32m INFO[0m [2mweft_api::routes[0m[2m:[0m list_triggers from database: 0 triggers (userId filter: None)
+[2m2026-04-15T17:41:35.434439Z[0m [32m INFO[0m [2mweft_api::routes[0m[2m:[0m list_triggers from database: 0 triggers (userId filter: None)
+[2m2026-04-15T17:45:04.685143Z[0m [32m INFO[0m [2mweft_api::routes[0m[2m:[0m list_triggers from database: 0 triggers (userId filter: None)
+[2m2026-04-17T11:31:48.272760Z[0m [32m INFO[0m [2mweft_api::routes[0m[2m:[0m list_triggers from database: 0 triggers (userId filter: None)
+[2m2026-04-17T23:30:13.235717Z[0m [32m INFO[0m [2mweft_api::routes[0m[2m:[0m list_triggers from database: 0 triggers (userId filter: None)
+[2m2026-04-27T07:08:44.683014Z[0m [32m INFO[0m [2mweft_api::routes[0m[2m:[0m list_triggers from database: 0 triggers (userId filter: None)

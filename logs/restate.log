@@ -1,0 +1,507 @@
+[2m2026-04-15T16:59:39.238172Z[0m [32mINFO[0m [1;3;32mrestate_server[0m[32m[32m
+  [1;32mStarting Restate Server 1.6.2 (76acff9 aarch64-unknown-linux-musl 2026-02-13)[0m[32m
+    node_name: "spark-b917"
+    config_source: ./restate-config.toml
+    base_dir: ./restate-data/spark-b917/[0m[32m[0m
+[2;3mon[0m main
+[2m2026-04-15T16:59:39.383248Z[0m [32mINFO[0m [1;3;32mrestate_core::network::net_util[0m[32m[32m
+  [1;32mServer listening[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-1
+  [2;3min[0m [1;3mrestate_core::network::net_util::server[0m
+    server_name: message-fabric-server 
+    uds.path: "./restate-data/spark-b917/fabric.sock" 
+    server.address: "0.0.0.0" 
+    server.port: 15122
+[2m2026-04-15T16:59:39.383613Z[0m [32mINFO[0m [1;3;32mrestate_node::init[0m[32m[32m
+  [1;32mTrying to join the cluster 'weft-staging'[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-5
+[2m2026-04-15T16:59:39.389519Z[0m [32mINFO[0m [1;3;32mrestate_metadata_server::raft::server::member[0m[32m[32m
+  [1;32mRun as member of the metadata cluster[0m[32m
+    configuration: v1; [N1][0m[32m[0m
+[2;3mon[0m rs:worker-4
+  [2;3min[0m [1;3mrestate_metadata_server::raft::server::member::run[0m
+    member_id: N1:8df9
+[2m2026-04-15T16:59:39.395557Z[0m [32mINFO[0m [1;3;32mrestate_metadata_server::raft::server::member[0m[32m[32m
+  [1;32mWon metadata cluster leadership[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-4
+  [2;3min[0m [1;3mrestate_metadata_server::raft::server::member::run[0m
+    member_id: N1:8df9
+[2m2026-04-15T16:59:39.485867Z[0m [32mINFO[0m [1;3;32mrestate_node[0m[32m[32m
+  [1;32mCluster 'weft-staging' has been automatically provisioned[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-18
+[2m2026-04-15T16:59:39.507708Z[0m [32mINFO[0m [1;3;32mrestate_node[0m[32m[32m
+  [1;32mMy Node ID is N1:2[0m[32m
+    node_name: spark-b917
+    roles: http-ingress | admin | worker | log-server | metadata-server
+    address: http://127.0.0.1:15122/
+    location: 
+    nodes_config_version: v2
+    cluster_name: weft-staging
+    cluster_fingerprint: Some(ClusterFingerprint(11506984811609706848))
+    partition_table_version: v1
+    logs_version: v1[0m[32m[0m
+[2;3mon[0m rs:worker-17
+[2m2026-04-15T16:59:39.558389Z[0m [32mINFO[0m [1;3;32mrestate_ingress_http::server[0m[32m[32m
+  [1;32mIngress HTTP listening[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-4
+  [2;3min[0m [1;3mrestate_ingress_http::server::server[0m
+    server_name: http-ingress-server 
+    uds.path: "./restate-data/spark-b917/ingress.sock" 
+    server.address: "0.0.0.0" 
+    server.port: 18080
+[2m2026-04-15T16:59:39.558618Z[0m [32mINFO[0m [1;3;32mrestate_node[0m[32m[32m
+  [1;32mRestate node roles [http-ingress | admin | worker | log-server | metadata-server] were started[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-17
+[2m2026-04-15T16:59:39.558706Z[0m [32mINFO[0m [1;3;32mrestate_node::failure_detector[0m[32m[32m
+  [1;32mFailure Detector Started[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-17
+[2m2026-04-15T16:59:39.562095Z[0m [32mINFO[0m [1;3;32mrestate_admin::service[0m[32m[32m
+  [1;32mAdmin API starting on: http://192.168.1.170:19070/[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-12
+[2m2026-04-15T16:59:39.562117Z[0m [32mINFO[0m [1;3;32mrestate_core::network::net_util[0m[32m[32m
+  [1;32mServer listening[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-12
+  [2;3min[0m [1;3mrestate_core::network::net_util::server[0m
+    server_name: admin-api-server 
+    uds.path: "./restate-data/spark-b917/admin.sock" 
+    server.address: "0.0.0.0" 
+    server.port: 19070
+[2m2026-04-15T16:59:39.659361Z[0m [32mINFO[0m [1;3;32mrestate_node::failure_detector::node_state[0m[32m[32m
+  [1;32mN1:2 transitioned from Dead to Alive (gossip-age=0)[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-17
+[2m2026-04-15T16:59:39.659459Z[0m [32mINFO[0m [1;3;32mrestate_admin::cluster_controller::service::cluster_controller_state[0m[32m[32m
+  [1;32mCluster controller switching to leader mode[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-17
+[2m2026-04-15T16:59:39.754792Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 0 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-0
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 0
+[2m2026-04-15T16:59:39.764190Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 1 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-1
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 1
+[2m2026-04-15T16:59:39.784407Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 2 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-2
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 2
+[2m2026-04-15T16:59:39.830346Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 3 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-3
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 3
+[2m2026-04-15T16:59:39.866461Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 4 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-4
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 4
+[2m2026-04-15T16:59:39.878867Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 5 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-5
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 5
+[2m2026-04-15T16:59:39.910926Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 6 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-6
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 6
+[2m2026-04-15T16:59:39.910955Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 7 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-7
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 7
+[2m2026-04-15T16:59:39.922423Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 8 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 8
+[2m2026-04-15T16:59:39.946740Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 10 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-10
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 10
+[2m2026-04-15T16:59:39.951865Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 9 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-9
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 9
+[2m2026-04-15T16:59:39.982444Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 12 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-12
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 12
+[2m2026-04-15T16:59:39.982446Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 11 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-11
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 11
+[2m2026-04-15T16:59:39.997304Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 13 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-13
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 13
+[2m2026-04-15T16:59:40.016576Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 14 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-14
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 14
+[2m2026-04-15T16:59:40.031595Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 15 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-15
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 15
+[2m2026-04-15T16:59:40.056118Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 16 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-16
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 16
+[2m2026-04-15T16:59:40.074922Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 17 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-17
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 17
+[2m2026-04-15T16:59:40.142306Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 18 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-18
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 18
+[2m2026-04-15T16:59:40.154120Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 19 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-19
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 19
+[2m2026-04-15T16:59:40.177818Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 20 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-20
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 20
+[2m2026-04-15T16:59:40.245893Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 22 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-22
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 22
+[2m2026-04-15T16:59:40.246070Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 21 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-21
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 21
+[2m2026-04-15T16:59:40.353737Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition[0m[32m[32m
+  [1;32mPartition 23 started[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-23
+  [2;3min[0m [1;3mrestate_worker::partition::run[0m
+    partition_id: 23
+[2m2026-04-15T16:59:44.305246Z[0m [32mINFO[0m [1;3;32mrestate_partition_store::memory[0m[32m[32m
+  [1;32mRebalancing the memory budget over 24 open partitions. Budget per partition changed from 202.6 MiB -> 33.8 MiB. total_usage: 243.2 MiB/810.3 MiB[0m[32m[0m[32m[0m
+[2;3mon[0m rs:worker-13
+[2m2026-04-15T23:51:36.383576Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(5591). This Lsn was reported durable at 2026-04-15T23:41:26.773Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-16T13:12:55.547773Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(16797). This Lsn was reported durable at 2026-04-16T13:02:29.727Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-17T02:31:35.922359Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(27974). This Lsn was reported durable at 2026-04-17T02:21:18.214Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-17T15:48:41.034556Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(39131). This Lsn was reported durable at 2026-04-17T15:38:28.59Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-18T04:50:25.269540Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(50062). This Lsn was reported durable at 2026-04-18T04:40:23.851Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-18T17:51:05.929776Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(60982). This Lsn was reported durable at 2026-04-18T17:41:01.528Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-19T06:51:14.834395Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(71897). This Lsn was reported durable at 2026-04-19T06:41:03.018Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-19T19:51:23.738971Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(82816). This Lsn was reported durable at 2026-04-19T19:41:14.846Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-20T08:52:04.392469Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(93740). This Lsn was reported durable at 2026-04-20T08:41:42.192Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-20T21:52:45.068741Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(104659). This Lsn was reported durable at 2026-04-20T21:42:14.699Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-21T10:52:53.969733Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(115579). This Lsn was reported durable at 2026-04-21T10:42:52.377Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-21T23:53:02.864263Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(126496). This Lsn was reported durable at 2026-04-21T23:42:53.866Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-22T12:53:43.538596Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(137413). This Lsn was reported durable at 2026-04-22T12:43:31.542Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-23T01:54:24.202048Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(148333). This Lsn was reported durable at 2026-04-23T01:44:04.049Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-23T14:55:04.863901Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(159253). This Lsn was reported durable at 2026-04-23T14:44:36.557Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-24T03:55:45.571651Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(170173). This Lsn was reported durable at 2026-04-24T03:45:14.303Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-24T16:55:54.487218Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(181093). This Lsn was reported durable at 2026-04-24T16:45:46.978Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-25T05:56:35.146847Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(192012). This Lsn was reported durable at 2026-04-25T05:46:14.317Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-25T18:56:44.145526Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(202939). This Lsn was reported durable at 2026-04-25T18:46:20.982Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-26T07:57:24.815605Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(213856). This Lsn was reported durable at 2026-04-26T07:46:53.515Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-26T20:57:33.722611Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(224776). This Lsn was reported durable at 2026-04-26T20:47:26.079Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-27T09:57:42.625053Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(235690). This Lsn was reported durable at 2026-04-27T09:47:33.058Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-27T22:58:23.288239Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(246610). This Lsn was reported durable at 2026-04-27T22:48:05.566Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-28T11:59:03.950280Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(257530). This Lsn was reported durable at 2026-04-28T11:48:43.242Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-29T00:59:44.613382Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(268450). This Lsn was reported durable at 2026-04-29T00:49:15.751Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-29T13:59:53.519440Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(279369). This Lsn was reported durable at 2026-04-29T13:49:48.279Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-30T03:00:34.171545Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(290289). This Lsn was reported durable at 2026-04-30T02:50:20.787Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-04-30T16:01:14.847445Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(301209). This Lsn was reported durable at 2026-04-30T15:50:58.464Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-01T05:01:23.748831Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(312129). This Lsn was reported durable at 2026-05-01T04:51:15.462Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-01T18:01:32.653146Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(323053). This Lsn was reported durable at 2026-05-01T17:51:32.564Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-02T07:02:13.315324Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(333973). This Lsn was reported durable at 2026-05-02T06:52:05.07Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-02T20:02:53.979361Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(344893). This Lsn was reported durable at 2026-05-02T19:52:42.748Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-03T09:03:34.640179Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(355813). This Lsn was reported durable at 2026-05-03T08:53:15.265Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-03T22:04:15.303172Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(366732). This Lsn was reported durable at 2026-05-03T21:53:47.931Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-04T11:04:24.208056Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(377652). This Lsn was reported durable at 2026-05-04T10:54:20.49Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-05T00:05:04.870671Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(388572). This Lsn was reported durable at 2026-05-04T23:54:53.008Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-05T13:05:45.533771Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(399492). This Lsn was reported durable at 2026-05-05T12:55:30.751Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-06T02:06:26.246518Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(410412). This Lsn was reported durable at 2026-05-06T01:56:03.58Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-06T15:06:35.201667Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(421332). This Lsn was reported durable at 2026-05-06T14:56:15.618Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-07T04:06:44.120909Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(432246). This Lsn was reported durable at 2026-05-07T03:56:17.37Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-07T17:06:53.060840Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(443169). This Lsn was reported durable at 2026-05-07T16:56:50.313Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-08T06:07:33.725504Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(454089). This Lsn was reported durable at 2026-05-08T05:57:23.293Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-08T19:08:14.547587Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(465010). This Lsn was reported durable at 2026-05-08T18:57:56.139Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-09T08:08:55.206784Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(475929). This Lsn was reported durable at 2026-05-09T07:58:34.308Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-09T21:09:35.964310Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(486849). This Lsn was reported durable at 2026-05-09T20:59:07.138Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-10T10:09:44.971612Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(497769). This Lsn was reported durable at 2026-05-10T09:59:39.804Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-10T23:10:25.637320Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(508689). This Lsn was reported durable at 2026-05-10T23:00:12.941Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-11T12:11:06.387482Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(519608). This Lsn was reported durable at 2026-05-11T12:00:50.718Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-12T01:11:47.075366Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(530528). This Lsn was reported durable at 2026-05-12T01:01:18.342Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-12T14:11:24.338096Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(541442). This Lsn was reported durable at 2026-05-12T14:01:14.908Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-13T03:11:33.332405Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(552365). This Lsn was reported durable at 2026-05-13T03:01:16.54Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-13T16:11:42.236197Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(563283). This Lsn was reported durable at 2026-05-13T16:01:39.23Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-14T05:12:22.927630Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(574200). This Lsn was reported durable at 2026-05-14T05:02:11.777Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-14T18:13:03.649642Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(585119). This Lsn was reported durable at 2026-05-14T18:02:49.614Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-15T07:13:44.312674Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(596039). This Lsn was reported durable at 2026-05-15T07:03:22.534Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-15T20:14:24.973285Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(606959). This Lsn was reported durable at 2026-05-15T20:03:55.643Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-16T09:14:33.902738Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(617879). This Lsn was reported durable at 2026-05-16T09:04:33.795Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-16T22:15:14.564390Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(628799). This Lsn was reported durable at 2026-05-16T22:05:06.422Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-17T11:15:55.222388Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(639719). This Lsn was reported durable at 2026-05-17T11:05:44.099Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-18T00:16:35.884210Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(650638). This Lsn was reported durable at 2026-05-18T00:06:16.606Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-18T13:16:44.789733Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(661562). This Lsn was reported durable at 2026-05-18T13:06:18.094Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8
+[2m2026-05-19T02:17:25.702587Z[0m [32mINFO[0m [1;3;32mrestate_worker::partition::leadership::trim_queue[0m[32m[32m
+  [1;32mTrimmed log 8 to Lsn(672482). This Lsn was reported durable at 2026-05-19T02:06:58.19Z[0m[32m[0m[32m[0m
+[2;3mon[0m rt:pp-8
+  [2;3min[0m [1;3mrestate_worker::partition::leadership::trim_queue::trim_logs[0m
+    log_id: 8

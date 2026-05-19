@@ -56,7 +56,8 @@ impl Node for OneBridgeUsageNode {
 
         match one_bridge_http::bridge_get(&ctx.http_client, bridge_url, "/api/usage", &params).await {
             Ok(resp) => {
-                let total_cost = resp.get("total_cost")
+                let total_cost = resp.get("totals")
+                    .and_then(|t| t.get("total_cost_usd"))
                     .and_then(|v| v.as_f64())
                     .unwrap_or(0.0);
                 let by_day = resp.get("by_day").cloned().unwrap_or(serde_json::json!([]));

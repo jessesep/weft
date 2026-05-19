@@ -1,0 +1,17 @@
+cluster-name = "weft-staging"
+bind-address = "0.0.0.0:15122"
+advertised-address = "http://127.0.0.1:15122/"
+auto-provision = true
+default-journal-retention = "10m"
+
+[admin]
+bind-address = "0.0.0.0:19070"
+
+[ingress]
+bind-address = "0.0.0.0:18080"
+
+[worker]
+cleanup-interval = "5m"
+
+[metadata-client]
+addresses = ["http://127.0.0.1:15122/"]

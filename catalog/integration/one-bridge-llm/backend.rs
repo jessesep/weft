@@ -2,9 +2,8 @@
 
 use async_trait::async_trait;
 use crate::node::{Node, NodeMetadata, NodeFeatures, PortDef, ExecutionContext, FieldDef};
-use crate::{NodeResult, register_node};
+use crate::{NodeResult, register_node, one_bridge_http};
 
-/// ONE Bridge LLM node for calling Claude through cc-bridge.
 #[derive(Default)]
 pub struct OneBridgeLlmNode;
 
@@ -27,6 +26,7 @@ impl Node for OneBridgeLlmNode {
                 PortDef::new("model", "String", false),
                 PortDef::new("input_tokens", "Number", false),
                 PortDef::new("output_tokens", "Number", false),
+                PortDef::new("cost_usd", "Number", false),
             ],
             features: NodeFeatures {
                 ..Default::default()
@@ -65,19 +65,18 @@ impl Node for OneBridgeLlmNode {
             .and_then(|v| v.as_str())
             .unwrap_or("");
 
-        let url = format!("{}/api/weft/llm", bridge_url);
-
         tracing::info!(
-            "ONE Bridge LLM request: url={}, prompt_len={}, model={}",
-            url,
+            "ONE Bridge LLM: prompt_len={}, model={}",
             prompt.len(),
             if model.is_empty() { "(default)" } else { model }
         );
 
-        // Build request body
         let mut body = serde_json::json!({
             "prompt": prompt,
             "max_tokens": max_tokens,
+            "execution_id": ctx.executionId,
+            "node_id": ctx.nodeId,
+            "project_id": ctx.projectId.clone().unwrap_or_default(),
         });
 
         if !system_prompt.is_empty() {
@@ -90,62 +89,61 @@ impl Node for OneBridgeLlmNode {
             body["temperature"] = serde_json::json!(temp);
         }
 
-        let client = ctx.http_client.clone();
+        match one_bridge_http::bridge_post(&ctx.http_client, bridge_url, "/api/weft/llm", body).await {
+            Ok(resp_json) => {
+                let text = resp_json.get("text")
+                    .and_then(|v| v.as_str())
+                    .unwrap_or("");
+                let resp_model = resp_json.get("model")
+                    .and_then(|v| v.as_str())
+                    .unwrap_or("");
+                let input_tokens = resp_json.get("input_tokens")
+                    .and_then(|v| v.as_u64())
+                    .unwrap_or(0);
+                let output_tokens = resp_json.get("output_tokens")
+                    .and_then(|v| v.as_u64())
+                    .unwrap_or(0);
+                let cache_read_tokens = resp_json.get("cache_read_tokens")
+                    .and_then(|v| v.as_u64())
+                    .unwrap_or(0);
+                let cache_creation_tokens = resp_json.get("cache_creation_tokens")
+                    .and_then(|v| v.as_u64())
+                    .unwrap_or(0);
+                let cost_usd = resp_json.get("cost_usd")
+                    .and_then(|v| v.as_f64())
+                    .unwrap_or(0.0);
 
-        let result = client
-            .post(&url)
-            .json(&body)
-            .timeout(std::time::Duration::from_secs(120))
-            .send()
-            .await;
+                tracing::info!(
+                    "ONE Bridge LLM: model={}, tokens={}/{}, cost=${:.6}",
+                    resp_model, input_tokens, output_tokens, cost_usd
+                );
 
-        match result {
-            Ok(response) => {
-                let status = response.status();
-                if !status.is_success() {
-                    let error_body = response.text().await.unwrap_or_default();
-                    tracing::error!("ONE Bridge LLM error (HTTP {}): {}", status, error_body);
-                    return NodeResult::failed(
-                        &format!("Bridge returned HTTP {}: {}", status, error_body)
-                    );
+                if cost_usd > 0.0 {
+                    ctx.report_usage_cost(
+                        &format!("one-bridge-llm:{}", resp_model),
+                        "llm",
+                        cost_usd,
+                        false,
+                        Some(serde_json::json!({
+                            "inputTokens": input_tokens,
+                            "outputTokens": output_tokens,
+                            "cacheReadTokens": cache_read_tokens,
+                            "cacheCreationTokens": cache_creation_tokens,
+                        })),
+                    ).await;
                 }
 
-                match response.json::<serde_json::Value>().await {
-                    Ok(resp_json) => {
-                        let text = resp_json.get("text")
-                            .and_then(|v| v.as_str())
-                            .unwrap_or("");
-                        let resp_model = resp_json.get("model")
-                            .and_then(|v| v.as_str())
-                            .unwrap_or("");
-                        let input_tokens = resp_json.get("input_tokens")
-                            .and_then(|v| v.as_u64())
-                            .unwrap_or(0);
-                        let output_tokens = resp_json.get("output_tokens")
-                            .and_then(|v| v.as_u64())
-                            .unwrap_or(0);
-
-                        tracing::info!(
-                            "ONE Bridge LLM response: model={}, tokens={}/{}",
-                            resp_model, input_tokens, output_tokens
-                        );
-
-                        NodeResult::completed(serde_json::json!({
-                            "response": text,
-                            "model": resp_model,
-                            "input_tokens": input_tokens,
-                            "output_tokens": output_tokens,
-                        }))
-                    }
-                    Err(e) => {
-                        tracing::error!("ONE Bridge LLM: failed to parse response JSON: {}", e);
-                        NodeResult::failed(&format!("Failed to parse bridge response: {}", e))
-                    }
-                }
+                NodeResult::completed(serde_json::json!({
+                    "response": text,
+                    "model": resp_model,
+                    "input_tokens": input_tokens,
+                    "output_tokens": output_tokens,
+                    "cost_usd": cost_usd,
+                }))
             }
             Err(e) => {
-                tracing::error!("ONE Bridge LLM: request failed: {}", e);
-                NodeResult::failed(&format!("Bridge request failed: {}", e))
+                tracing::error!("ONE Bridge LLM: {}", e);
+                NodeResult::failed(&e)
             }
         }
     }
